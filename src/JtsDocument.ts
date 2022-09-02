@@ -39,13 +39,13 @@ export interface IJtsDocument {
 }
 
 export interface IJtsDocumentProps {
-  series?: ITimeSeries[];
+  series?: ITimeSeries<unknown>[];
   version?: number;
 }
 
 export class JtsDocument {
   private readonly _version: number
-  private _series: ITimeSeries[]
+  private _series: ITimeSeries<unknown>[]
 
   constructor (props?: IJtsDocumentProps) {
     this._version = 1
@@ -57,7 +57,7 @@ export class JtsDocument {
     return this._version
   }
 
-  get series (): ITimeSeries[] {
+  get series (): ITimeSeries<unknown>[] {
     return this._series
   }
 
@@ -133,13 +133,13 @@ export class JtsDocument {
   // }
 
   // METHODS
-  public addSeries (series: ITimeSeries | ITimeSeries[]): JtsDocument {
+  public addSeries (series: ITimeSeries<unknown> | ITimeSeries<unknown>[]): JtsDocument {
     if (!Array.isArray(series)) { series = [series] }
     this._series.push(...series)
     return this
   }
 
-  public getSeries (seriesId: string | number): ITimeSeries | undefined {
+  public getSeries (seriesId: string | number): ITimeSeries<unknown> | undefined {
     return this.getSeriesById(seriesId)
   }
 
@@ -229,7 +229,7 @@ export class JtsDocument {
     }
   }
 
-  private getSeriesById (seriesId: string | number): ITimeSeries | undefined {
+  private getSeriesById (seriesId: string | number): ITimeSeries<unknown> | undefined {
     return this._series.find(series => series.id === seriesId)
   }
 }

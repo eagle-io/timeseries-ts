@@ -32,21 +32,22 @@ export interface ITimeSeriesJson<Type> {
   type?: string;
 }
 
-export interface ITimeSeries {
+export interface ITimeSeries<Type> {
   id: string | number;
   name: string | undefined;
   units: string | undefined;
   type: string | undefined;
   length: number;
-  records: ITimeSeriesRecord<unknown>[];
-  first: ITimeSeriesRecord<unknown>;
-  last: ITimeSeriesRecord<unknown>;
-  toJSON(): ITimeSeriesJson<unknown>;
+  values: (Type | null)[];
+  records: ITimeSeriesRecord<Type>[];
+  first: ITimeSeriesRecord<Type>;
+  last: ITimeSeriesRecord<Type>;
+  toJSON(): ITimeSeriesJson<Type>;
   sort(): void;
-  clone(): ITimeSeries;
+  clone(): ITimeSeries<Type>;
 }
 
-export class TimeSeries<Type> implements ITimeSeries {
+export class TimeSeries<Type> implements ITimeSeries<Type> {
   private _records: ITimeSeriesRecord<Type>[]
   private _id: string | number
   private _name: string | undefined
