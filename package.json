@@ -1,24 +1,29 @@
 {
   "name": "@eagle-io/timeseries",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Time Series data construction, manipulation and serialisation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "test": "jest --config jest.config.json",
     "lint": "eslint src/*.ts",
     "build": "tsc",
     "prepare": "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
     "version": "git add -A src",
-    "postversion" : "git push && git push --tags"
+    "postversion": "git push && git push --tags"
   },
-  "keywords": ["timeseries", "jts"],
+  "keywords": [
+    "timeseries",
+    "jts"
+  ],
   "author": "eagle.io",
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "git+https://github.com/eagle-io/timeseries.git"
   },
   "bugs": {
