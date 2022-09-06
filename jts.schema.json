@@ -10,7 +10,6 @@
       "default": {},
       "title": "Column header",
       "required": [
-        "id",
         "name",
         "dataType"
       ],
@@ -157,9 +156,6 @@
       "default": {},
       "title": "Document header",
       "required": [
-        "startTime",
-        "endTime",
-        "recordCount",
         "columns"
       ],
       "properties": {
@@ -235,7 +231,7 @@
       "title": "Data records",
       "items": {
         "type": "object",
-        "title": "A Schema",
+        "title": "Data record",
         "required": [
           "ts",
           "f"
