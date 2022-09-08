@@ -1,0 +1,21 @@
+version: v1.0
+name: Timeseries
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Build
+    task:
+      jobs:
+        - name: Build and Test
+          commands:
+            - checkout
+            - cache restore
+            - npm install
+            - cache store
+            - npm run build
+            - npm run prepublishOnly
+promotions:
+  - name: Publish to NPM
+    pipeline_file: pipeline_2.yml

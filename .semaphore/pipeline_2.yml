@@ -1,0 +1,17 @@
+version: v1.0
+name: Publish to NPM
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Publish to NPM
+    task:
+      jobs:
+        - name: Publish
+          commands:
+            - checkout
+            - npm install
+            - npm publish
+    run:
+      when: branch = 'master'
