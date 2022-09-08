@@ -11,11 +11,23 @@ blocks:
         - name: Build and Test
           commands:
             - checkout
+            - node --version
+            - npm --version
             - cache restore
             - npm install
             - cache store
             - npm run build
             - npm run prepublishOnly
+      epilogue:
+        always:
+          commands:
+            - '[[ -f reports/report.xml ]] && test-results publish reports/report.xml'
+after_pipeline:
+  task:
+    jobs:
+      - name: Publish Test Results
+        commands:
+          - test-results gen-pipeline-report
 promotions:
   - name: Publish to NPM
-    pipeline_file: pipeline_2.yml
+    pipeline_file: publish.yml

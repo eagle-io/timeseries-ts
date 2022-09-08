@@ -13,5 +13,7 @@ blocks:
             - checkout
             - npm install
             - npm publish
+      secrets:
+        - name: npm-secrets
     run:
       when: branch = 'master'
