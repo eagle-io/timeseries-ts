@@ -16,11 +16,12 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^\\w{24}$",
+          "pattern": "^[\\w|-]{1,36}$",
           "default": "",
           "title": "Column id",
           "examples": [
-            "541a5a129bc9b4035f906d70"
+            "541a5a129bc9b4035f906d70",
+            "421c8a5c-f619-4da6-ba57-ca361a47cfb0"
           ]
         },
         "name": {
