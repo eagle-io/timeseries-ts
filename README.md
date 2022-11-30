@@ -1,6 +1,6 @@
 # Time Series
 
-![version](https://img.shields.io/badge/version-1.0.3-blue?style=flat-square)
+[![npm version](https://badge.fury.io/js/@eagle-io%2Ftimeseries.svg)](https://badge.fury.io/js/@eagle-io%2Ftimeseries)
 [![npm](https://img.shields.io/npm/l/@eagle-io/timeseries.svg?style=flat-square)](https://github.com/eagle-io/timeseries/blob/master/LICENSE)
 
 > Time Series data construction, manipulation and serialisation.
