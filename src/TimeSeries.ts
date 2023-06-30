@@ -60,7 +60,7 @@ export class TimeSeries<Type> implements ITimeSeries<Type> {
     this._id = props?.id !== undefined ? props.id : util.generateRandomId()
     this._name = props?.name
     this._units = props?.units
-    this._type = props?.type
+    this._type = props?.type !== undefined ? props.type : 'NUMBER'
   }
 
   // PROPERTIES
