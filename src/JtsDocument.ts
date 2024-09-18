@@ -166,7 +166,7 @@ export class JtsDocument {
       subType: 'TIMESERIES',
       version: this._version.toFixed(1),
       header: this.getHeader(data),
-      data: data
+      data
     }
   }
 
