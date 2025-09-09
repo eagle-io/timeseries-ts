@@ -134,7 +134,7 @@ export class JtsDocument {
 
   // METHODS
   public addSeries (series: ITimeSeries<unknown> | ITimeSeries<unknown>[]): JtsDocument {
-    if (!Array.isArray(series)) { series = [series] }
+    if (!Array.isArray(series)) { series = [series as ITimeSeries<unknown>] }
     this._series.push(...series)
     return this
   }

@@ -40,8 +40,11 @@ export interface ITimeSeries<Type> {
   length: number;
   values: (Type | null)[];
   records: ITimeSeriesRecord<Type>[];
-  first: ITimeSeriesRecord<Type>;
-  last: ITimeSeriesRecord<Type>;
+  first: ITimeSeriesRecord<Type> | null;
+  last: ITimeSeriesRecord<Type> | null;
+  timestamps: Date[];
+  qualities: (number | null)[];
+  annotations: (string | null)[];
   toJSON(): ITimeSeriesJson<Type>;
   sort(): void;
   clone(): ITimeSeries<Type>;
@@ -101,11 +104,11 @@ export class TimeSeries<Type> implements ITimeSeries<Type> {
     return this._records.length
   }
 
-  get first (): ITimeSeriesRecord<Type> {
+  get first (): ITimeSeriesRecord<Type> | null {
     return this._records[0] || null
   }
 
-  get last (): ITimeSeriesRecord<Type> {
+  get last (): ITimeSeriesRecord<Type> | null {
     return this._records[this.length - 1] || null
   }
 
@@ -141,7 +144,7 @@ export class TimeSeries<Type> implements ITimeSeries<Type> {
   }
 
   public insert (records: ITimeSeriesRecord<Type> | ITimeSeriesRecord<Type>[]): TimeSeries<Type> {
-    if (!Array.isArray(records)) { records = [records] }
+    if (!Array.isArray(records)) { records = [records as ITimeSeriesRecord<Type>] }
     this._records.push(...records)
     return this
   }
